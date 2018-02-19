@@ -1,14 +1,71 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Match Game</title>
+  <link rel="icon" href="./resources/img/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="./resources/css/reset.css" type="text/css">
+  <!-- Importing 'Work Sans' Google font -->
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700,900" rel="stylesheet">
+
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Latest compiled JavaScript -->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
+
+  <link rel="stylesheet" href="./resources/css/style.css" type="text/css">
 </head>
+
 <body>
+
+  <div class="container">
+
+    <!-- Start of the first row -->
+    <div class="row">
+
+      <div class="col-lg-3 col-md-12">
+        <h1>Match Game</h1>
+        <h3>Rules</h3>
+        <p>Click on a card to reveal the number on the other side. Click on a second card to try and find a match to the
+          first. If you succeed, the pair will be removed from play. If not, try again!</p>
+        <h3>Rules</h3>
+        <p>You win when all pairs have been found.</p>
+      </div>
+
+      <div class="col-lg-9 col-md-12">
+        <div id="game" class="row">
+          <!-- No need to create following grid, will be generated automatically by 'match-game.js' script -->
+          <!-- Don't specify column ranges if you want grid containers to take always the same amount of columns for all media sizes!!!  -->
+          <!--<div class="col-3 card"></div>
+          <div class="col-3 card"></div>
+          <div class="col-3 card"></div>
+          <div class="col-3 card"></div>
+          <div class="col-3 card"></div>
+          <div class="col-3 card"></div>
+          <div class="col-3 card"></div>
+          <div class="col-3 card"></div>
+          <div class="col-3 card"></div>
+          <div class="col-3 card"></div>
+          <div class="col-3 card"></div>
+          <div class="col-3 card"></div>
+          <div class="col-3 card"></div>
+          <div class="col-3 card"></div>
+          <div class="col-3 card"></div>
+          <div class="col-3 card"></div>-->
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- jQuery library -->
   <script
-    src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
   <script type="text/javascript" src="./resources/js/match-game.js"></script>
   <script type="text/javascript" src="./resources/js/tests.js"></script>
 </body>
+
 </html>

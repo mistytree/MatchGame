@@ -1,0 +1,43 @@
+html {
+  font-size: 14px;
+  font-family: "Work Sans", sans-serif;
+}
+
+body {
+  margin-top: 5.25rem;
+  color: rgb(32,64,86);
+  background-color: rgb(255, 242, 242);
+}
+
+.container {
+  min-width: 54.857rem;  /* Prevents game cards from wrapping and instead horizontal scroll appears when width < 768px. */
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  color: rgb(74, 74, 74);
+}
+
+.card {
+  min-width: 12.5rem;
+  min-height: 12.5rem;
+  border: 4px solid #fff;
+  border-radius: 8px;
+  background-color: rgb(32, 64, 86);
+
+  font-weight: 900;
+  font-size: 7rem;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  cursor: pointer;  /* Changes text cursor to pointer cursor when hover over number. */
+}
