@@ -1,4 +1,4 @@
-var MatchGame = {};
+var MatchGame = {}; // Creates empty 'MatchGame' object
 
 // Sets up a new game after HTML document has loaded.
 // Renders a 4x4 board of cards.
@@ -11,21 +11,21 @@ $(document).ready(function() {
 // Generates and returns an array of matching card values.
 MatchGame.generateCardValues = function() {
 
-  var unplacedValues = [];
+  var unplacedValues = [];  // Creates empty array to be filled
 
-  // Generating array of eight number pairs 1-8
+  // Generates array of eight pairs of numbers 1-8 [1,1,2,2...]
   for (var value = 1; value <= 8; value++) {
     unplacedValues.push(value);
     unplacedValues.push(value);
     // console.log(unplacedValues);
   }
 
-  // Creating array of randomly ordered 'unplacedValues' numbers
+  // Creates array of randomly ordered numbers picked from 'unplacedValues' array
   var cardValues = [];
 
   while (unplacedValues.length > 0) {
-    var randomIndex = Math.floor(Math.random() * unplacedValues.length);
-    var randomValue = unplacedValues.splice(randomIndex, 1)[0];
+    var randomIndex = Math.floor(Math.random() * unplacedValues.length);  // Picks random value
+    var randomValue = unplacedValues.splice(randomIndex, 1)[0]; // Attaches random value to new array, removes number from 'unplacedValues' array
     cardValues.push(randomValue);
     // console.log('Card Value: ' + cardValues);
   }
@@ -35,7 +35,7 @@ MatchGame.generateCardValues = function() {
 
 // Converts card values to jQuery card objects and adds them to the supplied game object.
 MatchGame.renderCards = function(cardValues, $game) {
-  // Array of colors to be assigned to values 1-8
+  // Array of colors to be assigned to card values 1-8
   var colors = [
     'hsl(25, 85%, 65%)',
     'hsl(55, 85%, 65%)',
@@ -49,18 +49,18 @@ MatchGame.renderCards = function(cardValues, $game) {
   $game.empty();
   $game.data('flippedCards', []); // Checks for already flipped cards
 
-  // Assigning colors to card values
+  // Assigns colors to card values
   for (var x = 0; x < cardValues.length; x++) {
 
-    var value = cardValues[x]; // Picks card value`
+    var value = cardValues[x]; // Picks card value from creates 'cardValues' array
     var color = colors[value - 1]; // Assigns color to card value based on number; e.g. if card value is 3, 3rd color from 'colors' array will be assigned
-    var data = { // Sets arguments for 'data' variable
+    var data = { // Sets arguments for 'data' variable (object)
       value: value,
       color: color,
       isFlipped: false
     };
 
-    var $cardElement = $('<div class="col-3 card"></div>');
+    var $cardElement = $('<div class="col-3 card"></div>'); // Creates <div> element for card; .card class has to be defined in style.css
     $cardElement.data(data);  // Loads value & color to card(s)
 
     $game.append($cardElement);
@@ -79,7 +79,7 @@ MatchGame.flipCard = function($card, $game) {
     return;
   }
 
-  // If card was not flipped, modify its color, value, and status
+  // Modify color, value, and status of flipped card
   $card.css('background-color', $card.data('color'))
     .text($card.data('value'))
     .data('isFlipped', true);
@@ -88,9 +88,9 @@ MatchGame.flipCard = function($card, $game) {
   var flippedCards = $game.data('flippedCards');
   flippedCards.push($card);
 
-  // Check 2 flipped cards for their values
+  // It two cards were flipped, check for their values
   if (flippedCards.length === 2) {
-    // If values match
+    // If values match change colors to grey
     if (flippedCards[0].data('value') === flippedCards[1].data('value')) {
       var matchCss = {
         backgroundColor: 'rgb(153, 153, 153)',
@@ -99,7 +99,7 @@ MatchGame.flipCard = function($card, $game) {
       // Assign color values to matched flipped cards
       flippedCards[0].css(matchCss);
       flippedCards[1].css(matchCss);
-      // if values don't match
+      // If values don't match
     } else {
       var card1 = flippedCards[0];
       var card2 = flippedCards[1];
